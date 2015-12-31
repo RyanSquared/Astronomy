@@ -2,7 +2,7 @@
 
 ### Functions
 
-`log(message)`
+##`log(message)`
 
 **Description**
 
@@ -45,7 +45,7 @@ require("astronomy").log("Hello World!")
 
 ---
 
-`append(routine)`
+##`append(routine)`
 
 **Description**
 
@@ -79,7 +79,7 @@ end)
 
 ---
 
-`loop(break_on_failure)`
+##`loop(break_on_failure)`
 
 **Description**
 
