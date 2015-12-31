@@ -86,11 +86,12 @@ end)
 Begins the cqueues loop.
 Returns true if all coroutines peacefully exited;
 returns false otherwise after all coroutines are done.
-If given the breakOnFailure
+If given the break_on_failure option, breaks on the
+first routine terminated by error.
 
 **Parameters**
 
- * *break_on_failure*: A truthy/falsey value to break if a routine fails
+ * *break_on_failure*: A truthy/falsey value to stop the loop if a routine fails
 
 **Returns**
 
