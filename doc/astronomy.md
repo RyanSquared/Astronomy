@@ -118,10 +118,10 @@ end
 
 ### Values
 
-| Name     | Value       | Description           |
-|----------|-------------|-----------------------|
-| reset    | `'\003'`    | Reset all colors      |
-| success  | `'\00303'`  | Success color code    |
-| warn     | `'\00308'`  | Warning color code    |
-| error    | `'\00304'`  | Error color code      |
-| fatal    | `'\00306'`  | Fatal color code      |
+| Name     | Value       | Description                 |
+|----------|-------------|-----------------------------|
+| reset    | `'\003'`    | Reset all colors            |
+| success  | `'\00303'`  | (green) Success color code  |
+| warn     | `'\00308'`  | (yellow) Warning color code |
+| error    | `'\00304'`  | (red) Error color code      |
+| fatal    | `'\00306'`  | (purple) Fatal color code   |
