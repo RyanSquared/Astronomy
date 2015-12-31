@@ -6,7 +6,7 @@ Framework for running cqueues-based MoonScript applications
 ### Contributors
 
 | Name            | Email                | GitHub Account |
-| ------------------------------------------------------- |
+| ----------------|----------------------|--------------- |
 | Charles Heywood | charles@hashbang.sh  | ChickenNuggers |
 
 ### Project Information
@@ -24,6 +24,8 @@ applications without running multiple Lua states.
 
 [Lua](http://www.lua.org)
 
+[luafilesystem](https://github.com/keplerproject/luafilesystem)
+
 [cqueues](https://github.com/wahern/cqueues)
 
 ## Getting Started
@@ -34,12 +36,69 @@ It is assumed that users already have LuaRocks installed on their machine for
 this process; LuaRocks installation instructions will not be included. If a user
 does **not** have LuaRocks installed, they will have to manually go to the above
 page for the depency and download the program manually. Users can pass the
-"--local" flag to `luarocks install` so that libraries and binaries can be
+`--local` flag to `luarocks install` so that libraries and binaries can be
 installed locally.
 
 ```sh
 $ luarocks install cqueues
+$ luarocks install luafilesystem
 $ luarocks install moonscript # Optional
 ```
 
+### Installing subprograms
 
+The purpose of Astronomy is to run subprograms, or scripts that run in parallel
+to another yet are independent. Astronomy also will (**TODO**) offer an API
+that must be registered to be used by applications inside of Astronomy's
+configuration files.
+
+Programs are simple to install; most times users should be able to place a
+folder inside of `./programs` and be done. However, some users might want to
+give a program more permissions within Astronomy. Users should only need to
+use `$ touch $PROGRAM_NAME.permissions` to give the program full-level
+permissions within Astronomy.
+
+#### Installing subprograms via git
+
+Subprograms can be easily installed by simply cloning them into the `programs`
+folder; updating all programs at once can be easily achieved by running `git
+clone --recurse-submodules`.
+
+## Subprograms
+
+The simplest of subprograms should have a `main` function returned inside of
+a table; this enables Astronomy to pass the cqueues stack to the program. The
+program itself should never call `stack\loop!` or `stack:loop()` as this
+defeats the purpose of Astronomy. An example program is below.
+
+**MoonScript**
+
+```moonscript
+astronomy = require 'astronomy'
+cqueues   = require 'cqueues'
+
+main = (stack)->
+ stack\wrap ->
+  while true
+   cqueues.sleep 5
+   astronomy.log 'Yay, astronomy!'
+
+return :main
+```
+
+**Lua**
+
+``lua
+local astronomy = require("astronomy")
+local cqueues   = require("cqueues")
+
+local function main(stack)
+ stack:wrap(function()
+  while true do
+   cqueues.sleep(5)
+   astronomy.log("Yay, astronomy!")
+  end
+ end)
+end
+
+return {main=main}
