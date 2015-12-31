@@ -1,6 +1,6 @@
 ## Astronomy // API
 
-### Functions
+## Functions
 
 ###`log(message)`
 
@@ -117,7 +117,7 @@ if not success then
 end
 ```
 
-### Values
+## Values
 
 | Name     | Value       | Description                 |
 |----------|-------------|-----------------------------|
