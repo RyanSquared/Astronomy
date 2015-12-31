@@ -88,7 +88,7 @@ return :main
 
 **Lua**
 
-``lua
+```lua
 local astronomy = require("astronomy")
 local cqueues   = require("cqueues")
 
@@ -102,3 +102,4 @@ local function main(stack)
 end
 
 return {main=main}
+```
