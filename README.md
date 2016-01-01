@@ -67,8 +67,8 @@ clone --recurse-submodules`.
 ## Subprograms
 
 The simplest of subprograms should have a `main` function returned inside of
-a table; this enables Astronomy to pass the cqueues stack to the program. The
-program itself should never call `stack\loop!` or `stack:loop()` as this
+a table; this enables Astronomy to pass the cqueues queue to the program. The
+program itself should never call `queue\loop!` or `queue:loop()` as this
 defeats the purpose of Astronomy. An example program is below.
 
 **MoonScript**
@@ -77,8 +77,8 @@ defeats the purpose of Astronomy. An example program is below.
 astronomy = require 'astronomy'
 cqueues   = require 'cqueues'
 
-main = (stack)->
- stack\wrap ->
+main = (queue)->
+ queue\wrap ->
   while true
    cqueues.sleep 5
    astronomy.log 'Yay, astronomy!'
@@ -92,8 +92,8 @@ return :main
 local astronomy = require("astronomy")
 local cqueues   = require("cqueues")
 
-local function main(stack)
- stack:wrap(function()
+local function main(queue)
+ queue:wrap(function()
   while true do
    cqueues.sleep(5)
    astronomy.log("Yay, astronomy!")

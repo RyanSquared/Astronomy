@@ -49,11 +49,11 @@ require("astronomy").log("Hello World!")
 
 **Description**
 
-Adds a routine onto the cqueues stack.
+Adds a routine onto the cqueues queue.
 
 **Parameters**
 
- * _routine_: A function to be added to the cqueues stack
+ * _routine_: A function to be added to the cqueues queue
 
 **Returns**
 
