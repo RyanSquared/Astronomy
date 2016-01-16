@@ -35,7 +35,7 @@ applications without running multiple Lua states.
 It is assumed that users already have LuaRocks installed on their machine for
 this process; LuaRocks installation instructions will not be included. If a user
 does **not** have LuaRocks installed, they will have to manually go to the above
-page for the depency and download the program manually. Users can pass the
+page for the dependency and download the program manually. Users can pass the
 `--local` flag to `luarocks install` so that libraries and binaries can be
 installed locally.
 
