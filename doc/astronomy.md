@@ -26,7 +26,7 @@ astronomy.log 'Hello World!'
 
 -- Example 2
 
-with require 'alchemy'
+with require 'astronomy'
 	.log 'Hello World!'
 ```
 
@@ -41,40 +41,6 @@ astronomy.log("Hello World!")
 -- Example 2
 
 require("astronomy").log("Hello World!")
-```
-
----
-
-###`append(routine)`
-
-**Description**
-
-Adds a routine onto the cqueues queue.
-
-**Parameters**
-
- * _routine_: A function to be added to the cqueues queue
-
-**Returns**
-
- * _nil_
-
-**MoonScript**
-
-```moonscript
-astronomy.append(->
-	astronomy = require 'astronomy'
-	astronomy.log 'Hello World!'
-)
-```
-
-**Lua**
-
-```lua
-astronomy.append(function()
-	local astronomy = require("astronomy")
-	astronomy.log("Hello World!")
-end)
 ```
 
 ---
@@ -101,19 +67,19 @@ first routine terminated by error.
 **MoonScript**
 
 ```moonscript
-success, err = alchemy.loop!
+success, err = astronomy.loop!
 
 if not success
-	alchemy.log 'Error: ' .. err
+	astronomy.log 'Error: ' .. err
 ```
 
 **Lua**
 
 ```lua
-local success, err = alchemy.loop()
+local success, err = astronomy.loop()
 
 if not success then
-	alchemy.log("Error: " .. err)
+	astronomy.log("Error: " .. err)
 end
 ```
 
