@@ -1,13 +1,5 @@
 local cqueues = require('cqueues')
 local Logger = require('logger')
-local old_functions = { }
-for k, v in pairs({
-  'loop',
-  'step',
-  'errors'
-}) do
-  old_functions[v] = cqueues.interpose(v, function() end)
-end
 local Astronomy
 do
   local _class_0
@@ -23,9 +15,9 @@ do
     end,
     loop = function(self, break_on_error)
       self.log('--- Starting loop')
-      for err, _, thread in old_functions.errors(self) do
-        Logger.log('*** Error with <' .. tostring(thread) .. '>')
-        Logger.log('*** ' .. err)
+      for err, _, thread in self.queue:errors() do
+        self.log('*** Error with <' .. tostring(thread) .. '>')
+        self.log('*** ' .. err)
         if break_on_error then
           break
         end
