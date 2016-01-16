@@ -1,20 +1,20 @@
 cqueues = require 'cqueues'
 Logger  = require 'logger'
 
-proxy = (proxy_function)-> (...)=> proxy_function(@_queue, ...)
+old_functions = {}
 
-class Queue
-	new: (self)->
-		@_queue = cqueues.new!
-	attach: proxy cqueues.attach
-	wrap: proxy cqueues.wrap
+for k, v in pairs {'loop', 'step', 'errors'}
+	old_functions[v] = cqueues.interpose(v, ->)
 
-class Astronomy extends Queue
+class Astronomy
 	new: (self)->
-		super self
+		@queue = cqueues.new!
 	log: (message)-> Logger.print message
+	wrap: (...)=> @queue\wrap ...
+	attach: (...)=> @queue\attach ...
 	loop: (self, break_on_error)->
-		for err, _, thread in @queue.__queue\errors!
+		@.log '--- Starting loop'
+		for err, _, thread in old_functions.errors self
 			Logger.log '*** Error with <' .. tostring(thread) .. '>'
 			Logger.log '*** ' .. err
 			break if break_on_error
