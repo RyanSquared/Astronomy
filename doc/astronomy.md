@@ -62,33 +62,98 @@ first routine terminated by error.
 **Returns**
 
  * _true_|_false_: Success value of routines
- * _string_: Error message
 
 **MoonScript**
 
 ```moonscript
-success, err = astronomy.loop!
+success = astronomy\loop!
 
 if not success
-	astronomy.log 'Error: ' .. err
+	astronomy.log 'Oh. That\'s not good. :(')
 ```
 
 **Lua**
 
 ```lua
-local success, err = astronomy.loop()
+local success = astronomy:loop()
 
 if not success then
-	astronomy.log("Error: " .. err)
+	astronomy.log("Oh. That's not good. :(")
 end
 ```
 
-## Values
+---
 
-| Name     | Value       | Description                 |
-|----------|-------------|-----------------------------|
-| reset    | `'\003'`    | Reset all colors            |
-| success  | `'\00303'`  | (green) Success color code  |
-| warn     | `'\00308'`  | (yellow) Warning color code |
-| error    | `'\00304'`  | (red) Error color code      |
-| fatal    | `'\00306'`  | (purple) Fatal color code   |
+###`attach(coroutine)`
+
+**Description**
+
+Attach a coroutine onto the cqueues queue and "prepare it for battle".
+Generally, anything done with cqueues that does any blocking operation
+should be attached via this method or through `wrap()`.
+
+**Parameters**
+
+ * *coroutine*: A Lua coroutine
+
+**Returns**
+
+ * *nil*
+
+**MoonScript**
+
+```moonscript
+astronomy\attach coroutine.create ->
+	while true do
+		cqueues.sleep 5
+		astronomy.log 'Yay, sleep!'
+```
+
+**Lua**
+
+```lua
+astronomy:attach(coroutine.create(function()
+	while true do
+		cqueues.sleep(5)
+		astronomy.log("Yay, sleep!")
+	end
+end))
+```
+
+---
+
+###`wrap(func)`
+
+**Description**
+
+Wraps a function as a coroutine and adds the new coroutine
+to the cqueues queue object. As with attach(), this should
+be done for any blocking operations.
+
+**Parameters**
+
+ * *func*: Function to wrap
+
+**Returns**
+
+ * *nil*
+
+**MoonScript**
+
+```moonscript
+astronomy\wrap ->
+	while true do
+		cqueues.sleep 5
+		astronomy.log 'Yay, sleep!'
+```
+
+**Lua**
+
+```lua
+astronomy:wrap(function()
+	while true do
+		cqueues.sleep(5)
+		astronomy.log("Yay, sleep!")
+	end
+end))
+```
