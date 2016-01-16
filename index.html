@@ -19,7 +19,12 @@
     </section>
 
     <section class="main-content">
-      <h2>
+      <h1>
+<a id="astronomy" class="anchor" href="#astronomy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Astronomy</h1>
+
+<p>Framework for running cqueues-based MoonScript applications</p>
+
+<h2>
 <a id="general-information" class="anchor" href="#general-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>General Information</h2>
 
 <h3>
@@ -72,7 +77,7 @@ applications without running multiple Lua states.</p>
 <p>It is assumed that users already have LuaRocks installed on their machine for
 this process; LuaRocks installation instructions will not be included. If a user
 does <strong>not</strong> have LuaRocks installed, they will have to manually go to the above
-page for the depency and download the program manually. Users can pass the
+page for the dependency and download the program manually. Users can pass the
 <code>--local</code> flag to <code>luarocks install</code> so that libraries and binaries can be
 installed locally.</p>
 
@@ -105,8 +110,8 @@ clone --recurse-submodules</code>.</p>
 <a id="subprograms" class="anchor" href="#subprograms" aria-hidden="true"><span class="octicon octicon-link"></span></a>Subprograms</h2>
 
 <p>The simplest of subprograms should have a <code>main</code> function returned inside of
-a table; this enables Astronomy to pass the cqueues stack to the program. The
-program itself should never call <code>stack\loop!</code> or <code>stack:loop()</code> as this
+a table; this enables Astronomy to pass the cqueues queue to the program. The
+program itself should never call <code>queue\loop!</code> or <code>queue:loop()</code> as this
 defeats the purpose of Astronomy. An example program is below.</p>
 
 <p><strong>MoonScript</strong></p>
@@ -114,8 +119,8 @@ defeats the purpose of Astronomy. An example program is below.</p>
 <div class="highlight highlight-source-moonscript"><pre>astronomy <span class="pl-k">=</span> <span class="pl-c1">require</span> <span class="pl-s"><span class="pl-pds">'</span>astronomy<span class="pl-pds">'</span></span>
 cqueues   <span class="pl-k">=</span> <span class="pl-c1">require</span> <span class="pl-s"><span class="pl-pds">'</span>cqueues<span class="pl-pds">'</span></span>
 
-main <span class="pl-k">=</span> <span class="pl-en">(</span>stack<span class="pl-en">)</span><span class="pl-k">-&gt;</span>
- stack<span class="pl-k">\</span>wrap <span class="pl-k">-&gt;</span>
+main <span class="pl-k">=</span> <span class="pl-en">(</span>queue<span class="pl-en">)</span><span class="pl-k">-&gt;</span>
+ queue<span class="pl-k">\</span>wrap <span class="pl-k">-&gt;</span>
   <span class="pl-k">while</span> <span class="pl-c1">true</span>
    cqueues<span class="pl-k">.</span>sleep <span class="pl-c1">5</span>
    astronomy<span class="pl-k">.</span>log <span class="pl-s"><span class="pl-pds">'</span>Yay, astronomy!<span class="pl-pds">'</span></span>
@@ -127,8 +132,8 @@ main <span class="pl-k">=</span> <span class="pl-en">(</span>stack<span class="p
 <div class="highlight highlight-source-lua"><pre><span class="pl-k">local</span> astronomy <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>astronomy<span class="pl-pds">"</span></span>)
 <span class="pl-k">local</span> cqueues   <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>cqueues<span class="pl-pds">"</span></span>)
 
-<span class="pl-k">local</span> <span class="pl-k">function</span> <span class="pl-en">main</span>(<span class="pl-smi">stack</span>)
- stack:<span class="pl-c1">wrap</span>(<span class="pl-k">function</span>()
+<span class="pl-k">local</span> <span class="pl-k">function</span> <span class="pl-en">main</span>(<span class="pl-smi">queue</span>)
+ queue:<span class="pl-c1">wrap</span>(<span class="pl-k">function</span>()
   <span class="pl-k">while</span> <span class="pl-c1">true</span> <span class="pl-k">do</span>
    cqueues.<span class="pl-c1">sleep</span>(<span class="pl-c1">5</span>)
    astronomy.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">"</span>Yay, astronomy!<span class="pl-pds">"</span></span>)

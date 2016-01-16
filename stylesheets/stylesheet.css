@@ -104,9 +104,6 @@ a {
   .project-tagline {
     font-size: 1rem; } }
 
-.main-content {
-  text-align: justify;
-}
 .main-content :first-child {
   margin-top: 0; }
 .main-content img {
