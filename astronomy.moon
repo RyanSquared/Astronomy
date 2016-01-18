@@ -1,6 +1,8 @@
 cqueues = require 'cqueues'
 Logger  = require 'logger'
 
+Logger.set_pretty!
+
 class Astronomy
 	new: (self)->
 		@queue = cqueues.new!

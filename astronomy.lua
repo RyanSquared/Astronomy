@@ -1,5 +1,6 @@
 local cqueues = require('cqueues')
 local Logger = require('logger')
+Logger.set_pretty()
 local Astronomy
 do
   local _class_0
