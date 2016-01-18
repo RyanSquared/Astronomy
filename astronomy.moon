@@ -1,11 +1,14 @@
 cqueues = require 'cqueues'
 Logger  = require 'logger'
+--fifo    = require 'fifo/cqueues'
+
+--new_fifo = fifo!
 
 Logger.set_pretty!
+--Logger.set_fifo new_fifo
 
-class Astronomy
-	new: (self)->
-		@queue = cqueues.new!
+astronomy = {
+	queue: cqueues.new!
 	log: (message)-> Logger.print message
 	wrap: (...)=> @queue\wrap ...
 	attach: (...)=> @queue\attach ...
@@ -13,7 +16,12 @@ class Astronomy
 		@.log '--- Starting loop'
 		for err, _, thread in @queue\errors!
 			@.log '*** Error with <' .. tostring(thread) .. '>'
-			@.log '*** ' .. err
+			@.log '*** ' .. tostring(err)
 			break if break_on_error
+}
 
-Astronomy!
+--astronomy\wrap ->
+--	for line in fifo
+--		Logger._print line
+
+return astronomy
