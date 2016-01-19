@@ -1,6 +1,9 @@
 local cqueues = require('cqueues')
 local Logger = require('logger')
+local fifo = require('fifo/cqueues')
+local new_fifo = fifo()
 Logger.set_pretty()
+Logger.set_fifo(new_fifo)
 local astronomy = {
   queue = cqueues.new(),
   log = function(message)
@@ -23,4 +26,12 @@ local astronomy = {
     end
   end
 }
+astronomy:wrap(function()
+  for line in fifo do
+    cqueues.sleep(0.05)
+    for k, v in pairs(line) do
+      print(k, v)
+    end
+  end
+end)
 return astronomy

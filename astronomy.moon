@@ -1,11 +1,11 @@
 cqueues = require 'cqueues'
 Logger  = require 'logger'
---fifo    = require 'fifo/cqueues'
+fifo    = require 'fifo/cqueues'
 
---new_fifo = fifo!
+new_fifo = fifo!
 
 Logger.set_pretty!
---Logger.set_fifo new_fifo
+Logger.set_fifo new_fifo
 
 astronomy = {
 	queue: cqueues.new!
@@ -20,8 +20,10 @@ astronomy = {
 			break if break_on_error
 }
 
---astronomy\wrap ->
---	for line in fifo
---		Logger._print line
+astronomy\wrap ->
+	for line in fifo
+		cqueues.sleep 0.05
+		for k, v in pairs line
+			print k, v
 
 return astronomy
