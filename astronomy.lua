@@ -27,11 +27,8 @@ local astronomy = {
   end
 }
 astronomy:wrap(function()
-  for line in fifo do
-    cqueues.sleep(0.05)
-    for k, v in pairs(line) do
-      print(k, v)
-    end
+  for line in new_fifo do
+    Logger._print(line)
   end
 end)
 return astronomy

@@ -21,9 +21,7 @@ astronomy = {
 }
 
 astronomy\wrap ->
-	for line in fifo
-		cqueues.sleep 0.05
-		for k, v in pairs line
-			print k, v
+	for line in new_fifo
+		Logger._print line
 
 return astronomy
