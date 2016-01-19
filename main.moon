@@ -9,10 +9,8 @@ for program in lfs.dir 'subprograms'
 	if program\sub(1, 1) == '.'
 		continue
 	lfs.chdir 'subprograms/' .. program
-	astronomy.log 'Loading program ' .. program
 	func = assert loadfile 'main.lua'
 	func!
-	astronomy.log 'Loaded program ' .. program
 	lfs.chdir dir
 
 astronomy\loop!

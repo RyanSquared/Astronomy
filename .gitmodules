@@ -1,0 +1,6 @@
+[submodule "subprograms/moon-moon"]
+	path = subprograms/moon-moon
+	url = https://github.com/ChickenNuggers/Moon-Moon.git
+[submodule "lib/logger"]
+	path = lib/logger
+	url = https://github.com/ChickenNuggers/lua-logger.git

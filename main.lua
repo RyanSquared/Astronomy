@@ -12,10 +12,8 @@ for program in lfs.dir('subprograms') do
       break
     end
     lfs.chdir('subprograms/' .. program)
-    astronomy.log('Loading program ' .. program)
     local func = assert(loadfile('main.lua'))
     func()
-    astronomy.log('Loaded program ' .. program)
     lfs.chdir(dir)
     _continue_0 = true
   until true
