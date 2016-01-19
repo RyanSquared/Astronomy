@@ -28,6 +28,8 @@ applications without running multiple Lua states.
 
 [cqueues](https://github.com/wahern/cqueues)
 
+[lua-logger](https://github.com/ChickenNuggers/lua-logger)
+
 ## Getting Started
 
 ### Installing Dependencies with LuaRocks
