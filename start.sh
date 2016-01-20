@@ -1,4 +1,4 @@
-git pull --recurse-submodules
+git submodule foreach git pull
 stat_modtime="$(stat -c '%Y' start.sh)"
 if [ "$(stat -c '%Y' start.sh)" -gt "$stat_modtime" ]; then
 	exec start.sh

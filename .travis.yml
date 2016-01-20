@@ -1,0 +1,32 @@
+language: c
+
+sudo: false
+
+env:
+  global:
+    - LUAROCKS=2.3.0
+  matrix:
+    - LUA=lua5.2
+
+branches:
+  only:
+    - master
+
+before_install:
+  - source .travis/setenv_lua.sh
+  - luarocks install cqueues
+  - luarocks install luafilesystem
+  - luarocks install moonscript
+  - luarocks install lua-logger
+
+install:
+  - moonc -l .
+
+script:
+  - lua -e 'print(_VERSION)'
+  - ./tests.sh
+
+notifications:
+  email:
+    on_success: change
+    on_failure: always

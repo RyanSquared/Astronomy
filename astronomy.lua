@@ -10,13 +10,17 @@ local astronomy = {
   end,
   loop = function(self, break_on_error)
     Logger.print('--- Starting loop')
-    for err, _, thread in self.queue:errors() do
-      Logger._print('*** Error with <' .. tostring(thread) .. '>')
-      Logger._print('*** ' .. tostring(err))
-      if break_on_error then
-        break
+    while not self.queue:empty() do
+      local ok, err, _, thread = self.queue:step()
+      if not ok then
+        Logger.print('*** Error with <' .. tostring(thread) .. '>')
+        Logger.print('*** ' .. tostring(err))
+        if on_error then
+          break
+        end
       end
     end
+    return true
   end
 }
 return astronomy
