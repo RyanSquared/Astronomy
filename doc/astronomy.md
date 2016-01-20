@@ -24,19 +24,14 @@ first routine terminated by error.
 
 ```moonscript
 success = astronomy\loop!
-
-if not success
-	Logger.print 'Oh. That\'s not good. :(')
+assert success
 ```
 
 **Lua**
 
 ```lua
 local success = astronomy:loop()
-
-if not success then
-	Logger.print("Oh. That's not good. :(")
-end
+assert(success)
 ```
 
 ---
