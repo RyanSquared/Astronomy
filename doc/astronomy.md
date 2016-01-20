@@ -2,49 +2,6 @@
 
 ## Functions
 
-###`log(message)`
-
-**Description**
-
-Useful for printing any form of messages.
-
-**Parameters**
-
- * _message_: A string to be printed; may contain IRC-compatible color codes
-
-**Returns**
-
- * _nil_
-
-**MoonScript**
-
-```moonscript
--- Example 1
-
-astronomy = require 'astronomy'
-astronomy.log 'Hello World!'
-
--- Example 2
-
-with require 'astronomy'
-	.log 'Hello World!'
-```
-
-**Lua**
-
-```lua
--- Example 1
-
-local astronomy = require("astronomy")
-astronomy.log("Hello World!")
-
--- Example 2
-
-require("astronomy").log("Hello World!")
-```
-
----
-
 ###`loop(break_on_failure)`
 
 **Description**
@@ -69,7 +26,7 @@ first routine terminated by error.
 success = astronomy\loop!
 
 if not success
-	astronomy.log 'Oh. That\'s not good. :(')
+	Logger.print 'Oh. That\'s not good. :(')
 ```
 
 **Lua**
@@ -78,7 +35,7 @@ if not success
 local success = astronomy:loop()
 
 if not success then
-	astronomy.log("Oh. That's not good. :(")
+	Logger.print("Oh. That's not good. :(")
 end
 ```
 
@@ -106,7 +63,7 @@ should be attached via this method or through `wrap()`.
 astronomy\attach coroutine.create ->
 	while true do
 		cqueues.sleep 5
-		astronomy.log 'Yay, sleep!'
+		Logger.print 'Yay, sleep!'
 ```
 
 **Lua**
@@ -115,7 +72,7 @@ astronomy\attach coroutine.create ->
 astronomy:attach(coroutine.create(function()
 	while true do
 		cqueues.sleep(5)
-		astronomy.log("Yay, sleep!")
+		Logger.print("Yay, sleep!")
 	end
 end))
 ```
@@ -144,7 +101,7 @@ be done for any blocking operations.
 astronomy\wrap ->
 	while true do
 		cqueues.sleep 5
-		astronomy.log 'Yay, sleep!'
+		Logger.print 'Yay, sleep!'
 ```
 
 **Lua**
@@ -153,7 +110,7 @@ astronomy\wrap ->
 astronomy:wrap(function()
 	while true do
 		cqueues.sleep(5)
-		astronomy.log("Yay, sleep!")
+		Logger.print("Yay, sleep!")
 	end
 end))
 ```
