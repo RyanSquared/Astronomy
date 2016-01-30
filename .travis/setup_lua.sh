@@ -23,7 +23,7 @@ elif [ "$LUA" == "lua5.3" ]; then
   cd lua-5.3.2;
 fi
 
-make CFLAGS="-DLUA_USE_LINUX -DLUA_COMPAT_5_1" $PLATFORM
+make CFLAGS="-DLUA_USE_LINUX -DLUA_COMPAT_MODULE" $PLATFORM
 make INSTALL_TOP="$LUA_HOME_DIR" install;
 
 ln -s $LUA_HOME_DIR/bin/lua $HOME/.lua/lua
