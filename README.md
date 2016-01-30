@@ -1,4 +1,4 @@
-# Astronomy
+# Astronomy [![Build Status](https://travis-ci.org/ChickenNuggers/Astronomy.svg?branch=master)](https://travis-ci.org/ChickenNuggers/Astronomy)
 Framework for running cqueues-based MoonScript applications
 
 ## General Information
