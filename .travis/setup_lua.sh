@@ -1,7 +1,5 @@
 #! /bin/bash
 
-set -eufo pipefail
-
 source .travis/setenv_lua.sh
 
 source .travis/platform.sh
