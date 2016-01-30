@@ -6,14 +6,16 @@ env:
   global:
     - LUAROCKS=2.3.0
   matrix:
+    - LUA=lua5.1
     - LUA=lua5.2
+    - LUA=lua5.3
 
 branches:
   only:
     - master
 
 before_install:
-  - source .travis/setenv_lua.sh
+  - source .travis/setup_lua.sh
   - luarocks install cqueues
   - luarocks install luafilesystem
   - luarocks install moonscript
