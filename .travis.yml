@@ -15,7 +15,10 @@ branches:
   - gh-pages
 
 before_install:
+  - cat /home/travis/build.sh
   - source .travis/setup_lua.sh
+  - lua -v
+  - luarocks --version
   - luarocks install cqueues
   - luarocks install luafilesystem
   - luarocks install moonscript
@@ -25,7 +28,6 @@ install:
   - moonc -l .
 
 script:
-  - lua -e 'print(_VERSION)'
   - ./tests.sh
 
 notifications:

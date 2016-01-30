@@ -49,8 +49,6 @@ ln -s $LR_HOME_DIR/bin/luarocks $HOME/.lua/luarocks
 
 cd $TRAVIS_BUILD_DIR
 
-luarocks --version
-
 rm -rf $LUAROCKS_BASE
 
 if [ "$LUA" == "lua5.1" ]; then
@@ -62,3 +60,5 @@ elif [ "$LUA" == "lua5.3" ]; then
 fi
 
 eval `$HOME/.lua/luarocks path`
+
+echo 'Done'
