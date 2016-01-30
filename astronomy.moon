@@ -1,5 +1,5 @@
 cqueues = require 'cqueues'
-Logger  = require 'lib.logger.logger'
+Logger  = require 'logger'
 
 astronomy = {
 	queue: cqueues.new!
@@ -13,6 +13,7 @@ astronomy = {
 				Logger.print '*** Error with <' .. tostring(thread) .. '>'
 				Logger.print '*** ' .. tostring(err)
 				break if on_error
+		Logger.print '--- Loop ended'
 		return true
 }
 

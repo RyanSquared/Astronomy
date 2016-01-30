@@ -44,6 +44,7 @@ installed locally.
 ```sh
 $ luarocks install cqueues
 $ luarocks install luafilesystem
+$ luarocks install lua-logger
 $ luarocks install moonscript # Optional
 ```
 
