@@ -11,8 +11,8 @@ env:
     - LUA=lua5.3
 
 branches:
-  only:
-    - master
+  except:
+  - gh-pages
 
 before_install:
   - source .travis/setup_lua.sh
