@@ -5,7 +5,7 @@ Logger    = require "logger"
 Logger.print "Test: astronomy.break_on_loop"
 
 base_table = {}
-
+error()
 astronomy\attach coroutine.create ->
 	cqueues.sleep 0.005
 	for i=66, 70, 2

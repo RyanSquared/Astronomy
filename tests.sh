@@ -1,1 +1,1 @@
-find tests -type f -name "*.moon" | xargs -n 1 moon
+find tests -type f -name "*.lua" | xargs -n 1 lua
