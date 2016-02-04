@@ -1,5 +1,5 @@
 local cqueues = require('cqueues')
-local Logger = require('lib.logger.logger')
+local Logger = require('logger')
 local astronomy = {
   queue = cqueues.new(),
   wrap = function(self, ...)
@@ -20,6 +20,7 @@ local astronomy = {
         end
       end
     end
+    Logger.print('--- Loop ended')
     return true
   end
 }
