@@ -2,7 +2,7 @@ astronomy = require "astronomy"
 cqueues   = require "cqueues"
 Logger    = require "logger"
 
-Logger.print "Test: astronomy.wrap"
+Logger.print "Test: astronomy.attach"
 
 base_table = {}
 

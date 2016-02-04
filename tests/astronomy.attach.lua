@@ -1,7 +1,7 @@
 local astronomy = require("astronomy")
 local cqueues = require("cqueues")
 local Logger = require("logger")
-Logger.print("Test: astronomy.wrap")
+Logger.print("Test: astronomy.attach")
 local base_table = { }
 astronomy:attach(coroutine.create(function()
   cqueues.sleep(0.005)
