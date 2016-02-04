@@ -15,7 +15,7 @@ local astronomy = {
       if not ok then
         Logger.print('*** Error with <' .. tostring(thread) .. '>')
         Logger.print('*** ' .. tostring(err))
-        if on_error then
+        if break_on_error then
           break
         end
       end

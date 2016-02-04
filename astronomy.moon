@@ -12,7 +12,7 @@ astronomy = {
 			if not ok
 				Logger.print '*** Error with <' .. tostring(thread) .. '>'
 				Logger.print '*** ' .. tostring(err)
-				break if on_error
+				break if break_on_error
 		Logger.print '--- Loop ended'
 		return true
 }
