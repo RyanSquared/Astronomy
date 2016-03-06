@@ -5,9 +5,9 @@ Framework for running cqueues-based MoonScript applications
 
 ### Contributors
 
-| Name            | Email                | GitHub Account |
-| ----------------|----------------------|--------------- |
-| Charles Heywood | charles@hashbang.sh  | ChickenNuggers |
+| Name      | Email             | GitHub Account |
+| ----------|-------------------|--------------- |
+| Ryan Rion | ryan@hashbang.sh  | ChickenNuggers |
 
 ### Project Information
 
