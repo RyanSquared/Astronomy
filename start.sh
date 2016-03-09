@@ -7,4 +7,7 @@ if [ "$(stat -c '%Y' start.sh)" -gt "$stat_modtime" ]; then
 fi
 ./compile.sh
 stty -echo
-lua main.lua
+if [ ! "$LUA" ]; then
+	LUA=lua
+fi
+$LUA main.lua
