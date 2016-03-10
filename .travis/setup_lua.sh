@@ -12,13 +12,13 @@ mkdir $HOME/.lua
 
 mkdir -p "$LUA_HOME_DIR"
 
-if [ "$LUA" == "lua5.1" ]; then
+if [ "$LUA_VERSION" == "lua5.1" ]; then
   curl http://www.lua.org/ftp/lua-5.1.5.tar.gz | tar xz
   cd lua-5.1.5;
-elif [ "$LUA" == "lua5.2" ]; then
+elif [ "$LUA_VERSION" == "lua5.2" ]; then
   curl http://www.lua.org/ftp/lua-5.2.4.tar.gz | tar xz
   cd lua-5.2.4;
-elif [ "$LUA" == "lua5.3" ]; then
+elif [ "$LUA_VERSION" == "lua5.3" ]; then
   curl http://www.lua.org/ftp/lua-5.3.2.tar.gz | tar xz
   cd lua-5.3.2;
 fi
@@ -49,11 +49,11 @@ cd $TRAVIS_BUILD_DIR
 
 rm -rf $LUAROCKS_BASE
 
-if [ "$LUA" == "lua5.1" ]; then
+if [ "$LUA_VERSION" == "lua5.1" ]; then
   rm -rf lua-5.1.5;
-elif [ "$LUA" == "lua5.2" ]; then
+elif [ "$LUA_VERSION" == "lua5.2" ]; then
   rm -rf lua-5.2.4;
-elif [ "$LUA" == "lua5.3" ]; then
+elif [ "$LUA_VERSION" == "lua5.3" ]; then
   rm -rf lua-5.3.2;
 fi
 
